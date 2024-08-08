@@ -6,7 +6,6 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import config from './config/config';
-
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, cache: true, load:[config] }),
