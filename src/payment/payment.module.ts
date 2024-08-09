@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { PaymentController } from './payment.controller';
-import { XmlParserModule } from '../xml-parser/xml-parser.module';
-import { ConfigModule } from '@nestjs/config';
+import { PaymentService } from './payment.service';
 
 @Module({
-  imports: [XmlParserModule, ConfigModule],
   controllers: [PaymentController],
+  providers: [PaymentService],
 })
 export class PaymentModule {}
