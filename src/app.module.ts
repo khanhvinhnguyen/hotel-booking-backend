@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtModule } from '@nestjs/jwt';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { JwtModule } from '@nestjs/jwt';
+import { BookingModule } from './booking/booking.module';
 import config from './config/config';
+import { PaymentModule } from './payment/payment.module';
+import { XmlParserModule } from './xml-parser/xml-parser.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, cache: true, load:[config] }),
@@ -26,6 +30,9 @@ import config from './config/config';
       inject: [ConfigService],
     }),
     AuthModule,
+    BookingModule,
+    PaymentModule,
+    XmlParserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
